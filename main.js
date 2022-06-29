@@ -11,17 +11,69 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
+  
+      // Use the unit test to see what is expected.
+      //User1 input of rock, paper, or scissors.
+      // User2 input of rock, paper, or scissors.
+      
+      //should scrub input to ensure lowercase with "trim"ed whitespace
+      hand1 = hand1.toLowerCase().trim()
+      hand2 = hand2.toLowerCase().trim()
 
-  // Write code here
-  // Use the unit test to see what is expected
+      // hand1 = hand1.trim()
+      // hand2 = hand2.trim()
 
-}
+      
+//CREATE NEW FXN TO CHECK FOR VALID INPUT
+constcheckValidInput = (answer1, answer2) => {
+  //check if input either rock, paper, scissors
+        // if ((answer1 === 'rock') || ('paper') || ('scissors')) {
+        if (!(answer1 !== 'rock') || (answer1 !== 'paper') || (answer1 !='scissors') && (answer2 !== "rock") (answer2 !== "paper") (answer2 !== "scissors")) {
+          alert("Invalid Input")
+        }
+  }
+      
+      // Compare User1 input to User2 input.
+
+      if ((hand1 == 'rock' && hand2 == 'rock') || (hand1 == 'paper' && hand2 == 'paper') || (hand1 == 'scissors' && hand2 == 'scissors')) {
+      //it should detect a tie', () => (  
+          // If User1 input is 'rock' and User2 input is 'rock', it's a tie. 
+          // If User1 input is 'paper' and User2 input is 'paper', it's a tie.
+          // If User1 input is 'scissors' and User2 input is 'scissors', it's a tie.
+          
+      // console.log("It's a tie!")
+      
+      return "It's a tie!"
+      } else if ((hand1 == 'rock' && hand2 == 'scissors') || (hand1 == 'paper' && hand2 == 'rock') || (hand1 == 'scissors' && hand2 == 'paper')) {
+      //'should detect which hand won' hand 1 wins
+          // If User1 input is 'rock' and User2 input is 'scissors', User1 wins.
+          // If User1 input is 'paper' and User2 input is 'rock', User1 wins.
+          // If User1 input is 'scissors' and User2 input is 'paper', User1 wins.
+      // console.log("Hand one wins!")
+
+      return "Hand one wins!"
+      } else if ((hand1 == 'paper' && hand2 == 'scissors') || (hand1 == 'rock' && hand2 == 'paper') || (hand1 == 'scissors' && hand2 == 'rock')) {
+      ////'should detect which hand won' hand 2 wins
+          // If User1 input is 'paper' and User2 input is 'scissors', User2 wins.
+          // If User1 input is 'rock' and User2 input is 'paper', User2 wins.
+          // If User1 input is 'scissors' and User2 input is 'rock', User2 wins.
+      // console.log("Hand two wins!")
+
+      return "Hand two wins!"
+      } else {
+        getPrompt();
+      }
+    } //end of fxn
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
+
+
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
